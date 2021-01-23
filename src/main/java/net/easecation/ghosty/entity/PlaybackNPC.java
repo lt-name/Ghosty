@@ -91,7 +91,9 @@ public class PlaybackNPC extends EntityHuman implements InventoryHolder {
 
     @Override
     public void kill() {
-        if (this.getInventory() != null) this.getInventory().clearAll();
+        if (this.getInventory() != null) {
+            this.getInventory().clearAll();
+        }
         super.kill();
     }
 

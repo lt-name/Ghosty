@@ -13,12 +13,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GhostyPlugin extends PluginBase implements Listener {
+public class GhostyPlugin extends PluginBase {
 
     private static GhostyPlugin instance;
 
     /* 录制完成的成品 */
-    private List<PlayerRecord> playerRecords = new ArrayList<>();
+    private final List<PlayerRecord> playerRecords = new ArrayList<>();
 
     public static GhostyPlugin getInstance() {
         return instance;
@@ -40,7 +40,6 @@ public class GhostyPlugin extends PluginBase implements Listener {
 
     @Override
     public void onEnable() {
-        this.getServer().getPluginManager().registerEvents(this, this);
         this.getLogger().notice("GhostyPlugin enabled!");
     }
 
