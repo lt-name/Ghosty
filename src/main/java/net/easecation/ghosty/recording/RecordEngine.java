@@ -2,7 +2,6 @@ package net.easecation.ghosty.recording;
 
 import cn.nukkit.Player;
 import cn.nukkit.Server;
-import cn.nukkit.item.Item;
 import cn.nukkit.scheduler.TaskHandler;
 import net.easecation.ghosty.GhostyPlugin;
 
