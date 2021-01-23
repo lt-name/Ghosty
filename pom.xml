@@ -18,6 +18,29 @@
         <dir.login-proxy>../_proxy0</dir.login-proxy>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>opencollab-repo-release</id>
+            <url>https://repo.opencollab.dev/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>opencollab-repo-snapshot</id>
+            <url>https://repo.opencollab.dev/maven-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>cn.nukkit</groupId>
@@ -40,7 +63,9 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
                 <executions>
                     <execution>
                         <id>copy</id>

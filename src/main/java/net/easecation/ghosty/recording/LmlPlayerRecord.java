@@ -27,7 +27,7 @@ public class LmlPlayerRecord implements PlayerRecord {
         this.playerName = stream.getString();
         int offset = stream.getOffset();
         try {
-            this.skin = stream.getSkinLegacy();
+            this.skin = stream.getSkin();
         } catch (IllegalArgumentException e) {
             stream.setOffset(offset);
             this.skin = stream.getSkin();
