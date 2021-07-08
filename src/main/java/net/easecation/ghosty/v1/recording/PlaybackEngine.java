@@ -1,12 +1,12 @@
-package net.easecation.ghosty.recording;
+package net.easecation.ghosty.v1.recording;
 
 import cn.nukkit.Player;
 import cn.nukkit.Server;
 import cn.nukkit.level.Level;
 import cn.nukkit.level.Location;
+import cn.nukkit.plugin.Plugin;
 import cn.nukkit.scheduler.TaskHandler;
-import net.easecation.ghosty.GhostyPlugin;
-import net.easecation.ghosty.entity.PlaybackNPC;
+import net.easecation.ghosty.v1.entity.PlaybackNPC;
 
 import java.util.List;
 
@@ -26,15 +26,15 @@ public class PlaybackEngine {
     private PlaybackNPC npc;
     private RecordIterator iterator;
 
-    public PlaybackEngine(PlayerRecord record) {
-        this(record, null, null);
+    public PlaybackEngine(Plugin plugin, PlayerRecord record) {
+        this(plugin, record, null, null);
     }
 
-    public PlaybackEngine(PlayerRecord record, Level level) {
-        this(record, level, null);
+    public PlaybackEngine(Plugin plugin, PlayerRecord record, Level level) {
+        this(plugin, record, level, null);
     }
 
-    public PlaybackEngine(PlayerRecord record, Level level, List<Player> viewers) {
+    public PlaybackEngine(Plugin plugin, PlayerRecord record, Level level, List<Player> viewers) {
         this.record = record;
         iterator = record.iterator();
         RecordNode tick0 = iterator.initialValue(this.tick);
@@ -43,7 +43,7 @@ public class PlaybackEngine {
             Location loc = new Location(tick0.getX(), tick0.getY(), tick0.getZ(), tick0.getY(), tick0.getPitch(), level);
             this.npc = new PlaybackNPC(loc, record.getSkin(), tick0.getTagName(), viewers);
             this.npc.spawnToAll();
-            this.taskHandler = Server.getInstance().getScheduler().scheduleRepeatingTask(GhostyPlugin.getInstance(), this::onTick, 1);
+            this.taskHandler = Server.getInstance().getScheduler().scheduleRepeatingTask(plugin, this::onTick, 1);
             Server.getInstance().getLogger().debug(record.getPlayerName() + " PlayBack started!");
         } else {
             this.stopPlayback();

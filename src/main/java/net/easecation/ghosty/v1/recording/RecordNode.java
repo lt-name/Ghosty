@@ -1,4 +1,4 @@
-package net.easecation.ghosty.recording;
+package net.easecation.ghosty.v1.recording;
 
 import cn.nukkit.Player;
 import cn.nukkit.entity.Entity;

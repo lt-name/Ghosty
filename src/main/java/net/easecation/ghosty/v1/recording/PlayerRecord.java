@@ -1,4 +1,4 @@
-package net.easecation.ghosty.recording;
+package net.easecation.ghosty.v1.recording;
 
 import cn.nukkit.entity.data.Skin;
 import cn.nukkit.utils.BinaryStream;
@@ -33,9 +33,8 @@ public interface PlayerRecord {
     static PlayerRecord fromBinary(byte[] data) {
         BinaryStream stream = new BinaryStream(data);
         byte type = (byte) stream.getByte();
-        switch (type) {
-            case OBJECT_LML:
-                return new LmlPlayerRecord(stream);
+        if (type == OBJECT_LML) {
+            return new LmlPlayerRecord(stream);
         }
         return null;
     }

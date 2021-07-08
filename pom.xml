@@ -6,11 +6,10 @@
 
     <groupId>net.easecation</groupId>
     <artifactId>Ghosty</artifactId>
-    <version>1.0.0</version>
+    <version>lib-1.0.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>

@@ -1,4 +1,4 @@
-package net.easecation.ghosty;
+package net.easecation.ghosty.v1;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -47,7 +47,7 @@ public class MathUtil {
         String timestamp = String.valueOf(time);
         int length = timestamp.length();
         if (length > 3) {
-            return Integer.valueOf(timestamp.substring(0,length-3));
+            return Integer.parseInt(timestamp.substring(0,length-3));
         } else {
             return 0;
         }
@@ -97,10 +97,9 @@ public class MathUtil {
     public static double getSum(double[] inputData) {
         if (inputData == null || inputData.length == 0)
             return -1;
-        int len = inputData.length;
         double sum = 0;
-        for (int i = 0; i < len; i++) {
-            sum = sum + inputData[i];
+        for (double inputDatum : inputData) {
+            sum = sum + inputDatum;
         }
 
         return sum;
@@ -147,10 +146,9 @@ public class MathUtil {
     public static double getSquareSum(double[] inputData) {
         if(inputData==null||inputData.length==0)
             return -1;
-        int len=inputData.length;
         double sqrsum = 0.0;
-        for (int i = 0; i <len; i++) {
-            sqrsum = sqrsum + inputData[i] * inputData[i];
+        for (double inputDatum : inputData) {
+            sqrsum = sqrsum + inputDatum * inputDatum;
         }
 
 

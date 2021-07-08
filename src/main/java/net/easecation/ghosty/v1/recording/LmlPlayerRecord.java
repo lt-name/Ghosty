@@ -1,4 +1,4 @@
-package net.easecation.ghosty.recording;
+package net.easecation.ghosty.v1.recording;
 
 import cn.nukkit.Player;
 import cn.nukkit.Server;
@@ -6,7 +6,7 @@ import cn.nukkit.entity.data.Skin;
 import cn.nukkit.item.Item;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.utils.BinaryStream;
-import net.easecation.ghosty.MathUtil;
+import net.easecation.ghosty.v1.MathUtil;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -170,7 +170,7 @@ public class LmlPlayerRecord implements PlayerRecord {
     @Override
     public byte[] toBinary() {
         BinaryStream stream = new BinaryStream();
-        stream.putByte(PlayerRecord.OBJECT_LML);
+        stream.putByte(OBJECT_LML);
         stream.putString(this.playerName);
         stream.putSkin(this.skin);
         stream.putUnsignedVarInt(this.rec.size());

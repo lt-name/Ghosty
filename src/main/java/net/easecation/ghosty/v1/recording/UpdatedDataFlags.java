@@ -1,11 +1,9 @@
-package net.easecation.ghosty.recording;
+package net.easecation.ghosty.v1.recording;
 
 import cn.nukkit.entity.Entity;
 import cn.nukkit.entity.data.LongEntityData;
 import cn.nukkit.utils.BinaryStream;
-import net.easecation.ghosty.entity.PlaybackNPC;
-
-import java.util.Objects;
+import net.easecation.ghosty.v1.entity.PlaybackNPC;
 
 /**
  * Created by Mulan Lin('Snake1999') on 2016/11/19 15:23.

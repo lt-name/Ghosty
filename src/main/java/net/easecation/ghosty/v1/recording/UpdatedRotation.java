@@ -1,8 +1,8 @@
-package net.easecation.ghosty.recording;
+package net.easecation.ghosty.v1.recording;
 
 import cn.nukkit.level.Location;
 import cn.nukkit.utils.BinaryStream;
-import net.easecation.ghosty.entity.PlaybackNPC;
+import net.easecation.ghosty.v1.entity.PlaybackNPC;
 
 /**
  * Created by Mulan Lin('Snake1999') on 2016/11/19 15:26.
@@ -33,7 +33,7 @@ class UpdatedRotation implements Updated {
 
     @Override
     public int getUpdateTypeId() {
-        return Updated.TYPE_ROTATION;
+        return TYPE_ROTATION;
     }
 
     public UpdatedRotation(BinaryStream stream) {

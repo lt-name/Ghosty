@@ -1,37 +1,26 @@
-package net.easecation.ghosty.recording;
+package net.easecation.ghosty.v1.recording;
 
 import cn.nukkit.Player;
 import cn.nukkit.Server;
+import cn.nukkit.plugin.Plugin;
 import cn.nukkit.scheduler.TaskHandler;
-import net.easecation.ghosty.GhostyPlugin;
 
 public class RecordEngine {
 
     private final Player player;
     private final TaskHandler taskHandler;
 
-    private boolean unifySave = true;
     private int tick = 0;
     private boolean recording = true;
     private boolean stopped = false;
 
     private PlayerRecord record;
 
-    public RecordEngine(Player player) {
+    public RecordEngine(Plugin plugin, Player player) {
         this.player = player;
         this.record = new LmlPlayerRecord(player);
-        this.taskHandler = Server.getInstance().getScheduler().scheduleRepeatingTask(GhostyPlugin.getInstance(), this::onTick, 1);
+        this.taskHandler = Server.getInstance().getScheduler().scheduleRepeatingTask(plugin, this::onTick, 1);
         Server.getInstance().getLogger().warning(player.getName() + " Record started!");
-    }
-
-    /**
-     * 统一保存到本插件内存中
-     * @param unifySave 是否统一保存
-     * @return 本对象
-     */
-    public RecordEngine setUnifySave(boolean unifySave) {
-        this.unifySave = unifySave;
-        return this;
     }
 
     public boolean isRecording() {
@@ -65,7 +54,6 @@ public class RecordEngine {
         this.stopped = true;
         Server.getInstance().getLogger().warning(this.player.getName() + " Record stopped!");
         this.taskHandler.cancel();
-        if (unifySave) GhostyPlugin.getInstance().getPlayerRecords().add(this.record);
         return this.record;
     }
 
